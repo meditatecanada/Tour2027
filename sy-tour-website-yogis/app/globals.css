@@ -63,6 +63,8 @@
   --color-cream: var(--cream);
   --color-charcoal: var(--charcoal);
   --color-silver-tree: var(--silver-tree);
+  --color-soul-stone-blue: var(--soul-stone-blue);
+  --color-light-terracotta: var(--light-terracotta);
 }
 
 :root {
@@ -75,6 +77,8 @@
   --cream: #fafaf7;
   --charcoal: #323232;
   --silver-tree: #65B784;
+  --soul-stone-blue: #004AAD;
+  --light-terracotta: #D07474;
 
   /* Override shadcn base tokens with our brand */
   --background: #fafaf7;
