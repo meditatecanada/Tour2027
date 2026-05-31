@@ -4,7 +4,7 @@ export default function Culmination() {
   return (
     <section
       id="culmination"
-      className="bg-teal-dark text-white py-20 md:py-28"
+      className="bg-[#004AAD] text-white py-20 md:py-28"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {/* Section header */}

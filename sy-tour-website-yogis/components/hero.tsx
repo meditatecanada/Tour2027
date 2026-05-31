@@ -65,8 +65,7 @@ export default function Hero() {
           <a href="#join">
             <Button
               size="lg"
-              variant="outline"
-              className="border-white/70 text-white bg-white/10 hover:bg-white/20 rounded-full px-8 py-6 text-base font-medium backdrop-blur-sm"
+              className="bg-[#65B784] hover:bg-[#65B784]/90 text-white rounded-full px-8 py-6 text-base font-medium shadow-lg"
             >
               Register Interest
             </Button>

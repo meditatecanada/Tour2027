@@ -47,7 +47,7 @@ export default function Navigation() {
           className="flex items-center"
         >
           <Image
-            src="/logo.png"
+            src="/logo-clear.png"
             alt="Meditate Canada Tour 2027"
             height={60}
             width={200}
@@ -64,26 +64,28 @@ export default function Navigation() {
               href={link.href}
               onClick={(e) => { e.preventDefault(); handleNav(link.href); }}
               className={`text-sm font-medium transition-colors hover:text-teal whitespace-nowrap ${
-                scrolled ? "text-charcoal" : "text-white/90"
+                scrolled ? "text-black" : "text-white/90"
               }`}
             >
               {link.label}
             </a>
           ))}
-          <Button
-            size="sm"
-            onClick={() => handleNav("#contact")}
-            className="bg-gold hover:bg-gold/90 text-white rounded-full px-5"
-          >
-            Support Tour
-          </Button>
-          <Button
-            size="sm"
-            onClick={() => handleNav("#join")}
-            className="bg-teal hover:bg-teal/90 text-white rounded-full px-5"
-          >
-            Register Interest
-          </Button>
+          {/* Split button */}
+          <div className="flex items-stretch rounded-full overflow-hidden shadow-sm">
+            <button
+              onClick={() => handleNav("#join")}
+              className="bg-[#65B784] hover:bg-[#65B784]/90 text-white text-sm font-medium px-5 py-1.5 transition-colors"
+            >
+              Register Interest
+            </button>
+            <div className="w-px bg-white/40" />
+            <button
+              onClick={() => handleNav("#contact")}
+              className="bg-[#D07474] hover:bg-[#D07474]/90 text-white text-sm font-medium px-5 py-1.5 transition-colors"
+            >
+              Support Tour
+            </button>
+          </div>
         </nav>
 
         {/* Mobile nav */}
@@ -100,7 +102,7 @@ export default function Navigation() {
             <div className="flex flex-col gap-1 mt-8">
               <div className="mb-6">
                 <Image
-                  src="/logo.png"
+                  src="/logo-clear.png"
                   alt="Meditate Canada Tour 2027"
                   height={60}
                   width={200}
@@ -116,18 +118,22 @@ export default function Navigation() {
                   {link.label}
                 </button>
               ))}
-              <Button
-                className="mt-6 bg-gold hover:bg-gold/90 text-white rounded-full"
-                onClick={() => handleNav("#contact")}
-              >
-                Support Tour
-              </Button>
-              <Button
-                className="mt-2 bg-teal hover:bg-teal/90 text-white rounded-full"
-                onClick={() => handleNav("#join")}
-              >
-                Register Interest
-              </Button>
+              {/* Mobile split button */}
+              <div className="mt-6 flex items-stretch rounded-full overflow-hidden shadow-sm">
+                <button
+                  onClick={() => handleNav("#join")}
+                  className="flex-1 bg-[#65B784] hover:bg-[#65B784]/90 text-white text-sm font-medium py-2.5 transition-colors"
+                >
+                  Register Interest
+                </button>
+                <div className="w-px bg-white/40" />
+                <button
+                  onClick={() => handleNav("#contact")}
+                  className="flex-1 bg-[#D07474] hover:bg-[#D07474]/90 text-white text-sm font-medium py-2.5 transition-colors"
+                >
+                  Support Tour
+                </button>
+              </div>
             </div>
           </SheetContent>
         </Sheet>
