@@ -74,7 +74,7 @@ export default function Registration() {
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Button
                 size="lg"
-                className="bg-teal hover:bg-teal/90 text-white rounded-full px-8"
+                className="bg-[#65B784] hover:bg-[#65B784]/90 text-white rounded-full px-8"
                 onClick={() =>
                   window.open("mailto:mediatecanada2027@gmail.com", "_blank")
                 }

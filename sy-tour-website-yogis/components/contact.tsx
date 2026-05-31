@@ -122,7 +122,7 @@ export default function Contact() {
 
             <Button
               size="lg"
-              className="w-full bg-gold hover:bg-gold/90 text-white rounded-full font-medium"
+              className="w-full bg-[#D07474] hover:bg-[#D07474]/90 text-white rounded-full font-medium"
               onClick={() => {
                 // TODO: Replace with actual donation link
                 alert("Donation link coming soon! Thank you for your support.");

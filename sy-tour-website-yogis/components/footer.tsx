@@ -11,13 +11,13 @@ const navLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-teal-dark text-white">
+    <footer className="bg-[#004AAD] text-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-16">
         <div className="grid md:grid-cols-3 gap-10 mb-12">
           {/* Brand */}
           <div>
             <Image
-              src="/logo.png"
+              src="/logo-clear.png"
               alt="Meditate Canada Tour 2027"
               height={60}
               width={200}
