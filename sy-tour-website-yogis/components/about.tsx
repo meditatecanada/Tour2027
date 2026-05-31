@@ -79,7 +79,7 @@ export default function About() {
       </div>
 
       {/* Full-width pull quote */}
-      <div className="bg-teal-dark text-white py-16 md:py-20">
+      <div className="bg-[#004AAD] text-white py-16 md:py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <span className="text-5xl font-heading text-gold/30 leading-none select-none">
             &ldquo;
