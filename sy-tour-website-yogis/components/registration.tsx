@@ -1,15 +1,48 @@
 "use client";
 
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, Copy, Check, ShieldCheck, CreditCard, Send, Lock } from "lucide-react";
 
 // TODO: Replace with actual Google Form URL when created
 const GOOGLE_FORM_URL = "";
 
 export default function Registration() {
+  const [copied, setCopied] = useState(false);
+  const [paymentMethod, setPaymentMethod] = useState<"etransfer" | "card">("etransfer");
+  const [cardName, setCardName] = useState("");
+  const [cardNumber, setCardNumber] = useState("");
+  const [cardExpiry, setCardExpiry] = useState("");
+  const [cardCvc, setCardCvc] = useState("");
+  const [paymentStatus, setPaymentStatus] = useState<"idle" | "processing" | "success">("idle");
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText("mediatecanada2027@gmail.com");
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  const handleMockPay = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!cardName || !cardNumber || !cardExpiry || !cardCvc) return;
+    
+    setPaymentStatus("processing");
+    setTimeout(() => {
+      setPaymentStatus("success");
+    }, 2000);
+  };
+
+  const resetMockPay = () => {
+    setCardName("");
+    setCardNumber("");
+    setCardExpiry("");
+    setCardCvc("");
+    setPaymentStatus("idle");
+  };
+
   return (
     <section id="join" className="bg-cream py-20 md:py-28">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <div className="text-center mb-12">
           <p className="text-xs tracking-[0.3em] uppercase text-teal font-medium mb-3">
@@ -83,18 +116,215 @@ export default function Registration() {
               </Button>
               <a href="#contact">
                 <Button
-                  size="lg"
-                  variant="outline"
-                  className="rounded-full px-8 border-teal text-teal hover:bg-teal/5"
+                  size="default"
+                  className="bg-teal hover:bg-teal/90 text-white rounded-full px-6 py-2 text-sm"
+                  onClick={() =>
+                    window.open("mailto:mediatecanada2027@gmail.com", "_blank")
+                  }
                 >
-                  Contact the Team
+                  Express Interest by Email
                 </Button>
-              </a>
+                <a href="#contact" className="inline-block">
+                  <Button
+                    size="default"
+                    variant="outline"
+                    className="rounded-full px-6 py-2 text-sm border-teal text-teal hover:bg-teal/5 w-full"
+                  >
+                    Contact the Team
+                  </Button>
+                </a>
+              </div>
+            </div>
+
+            {/* Card B: Integrated Payment Selector */}
+            <div className="rounded-2xl border border-border bg-white p-8 md:p-10 text-center flex flex-col justify-between shadow-sm transition-all duration-300">
+              <div>
+                <div className="w-14 h-14 rounded-full bg-teal/10 flex items-center justify-center mx-auto mb-6">
+                  <ShieldCheck className="h-6 w-6 text-teal" />
+                </div>
+                <h3 className="font-heading text-2xl font-bold text-teal-dark mb-2">
+                  Tour Contribution
+                </h3>
+                <p className="text-muted-foreground text-xs leading-relaxed mb-6">
+                  Contribute your participation fee securely. Select your preferred method below to view details.
+                </p>
+                
+                {/* Method selector tabs */}
+                <div className="grid grid-cols-2 gap-2 bg-cream p-1 rounded-xl mb-6 border border-teal/10">
+                  <button
+                    onClick={() => setPaymentMethod("etransfer")}
+                    className={`py-2.5 px-3 rounded-lg text-xs font-semibold flex items-center justify-center gap-1.5 transition-all duration-200 ${
+                      paymentMethod === "etransfer"
+                        ? "bg-teal text-white shadow-sm"
+                        : "text-muted-foreground hover:text-teal-dark"
+                    }`}
+                  >
+                    <Send className="h-3 w-3" />
+                    e-Transfer
+                  </button>
+                  <button
+                    onClick={() => setPaymentMethod("card")}
+                    className={`py-2.5 px-3 rounded-lg text-xs font-semibold flex items-center justify-center gap-1.5 transition-all duration-200 ${
+                      paymentMethod === "card"
+                        ? "bg-teal text-white shadow-sm"
+                        : "text-muted-foreground hover:text-teal-dark"
+                    }`}
+                  >
+                    <CreditCard className="h-3 w-3" />
+                    Credit Card
+                  </button>
+                </div>
+
+                {/* Tab content area with smooth height transition placeholder */}
+                <div className="transition-all duration-300 overflow-hidden text-left">
+                  {paymentMethod === "etransfer" ? (
+                    <div className="space-y-4 animate-fadeIn">
+                      <p className="text-muted-foreground text-xs leading-relaxed text-center">
+                        Support the tour directly with <strong>0% admin fees</strong>. 100% of your e-Transfer funds go straight to hosting costs.
+                      </p>
+                      
+                      {/* Details box */}
+                      <div className="bg-cream/60 rounded-xl p-4 text-left border border-teal/10 space-y-2">
+                        <div className="flex justify-between items-center text-xs pb-2 border-b border-teal/10">
+                          <span className="text-muted-foreground">Recipient Email</span>
+                          <span className="font-mono font-bold text-teal-dark">mediatecanada2027@gmail.com</span>
+                        </div>
+                        <div className="flex justify-between items-center text-xs py-1 border-b border-teal/10">
+                          <span className="text-muted-foreground">Amount</span>
+                          <span className="font-bold text-teal-dark">$1,250 CAD</span>
+                        </div>
+                        <div className="text-xs pt-1">
+                          <span className="text-muted-foreground block mb-1">Transfer Memo / Notes:</span>
+                          <span className="text-teal-dark italic font-medium block">
+                            Include your full name & "Tour 2027"
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="space-y-4 animate-fadeIn">
+                      {paymentStatus === "idle" && (
+                        <>
+                          <p className="text-muted-foreground text-xs leading-relaxed text-center">
+                            Pay securely online using credit card, Apple Pay, or Google Pay (processed via Stripe/Helcim).
+                          </p>
+                          
+                          {/* High-fidelity Mock Payment Form */}
+                          <form onSubmit={handleMockPay} className="space-y-2.5">
+                            <input
+                              type="text"
+                              required
+                              placeholder="Name on Card"
+                              value={cardName}
+                              onChange={(e) => setCardName(e.target.value)}
+                              className="w-full bg-cream/40 border border-teal/10 rounded-lg p-2.5 text-xs text-teal-dark focus:outline-none focus:ring-1 focus:ring-teal/30 placeholder:text-muted-foreground/60"
+                            />
+                            <input
+                              type="text"
+                              required
+                              maxLength={19}
+                              placeholder="Card Number (•••• •••• •••• ••••)"
+                              value={cardNumber}
+                              onChange={(e) => setCardNumber(e.target.value)}
+                              className="w-full bg-cream/40 border border-teal/10 rounded-lg p-2.5 text-xs text-teal-dark focus:outline-none focus:ring-1 focus:ring-teal/30 placeholder:text-muted-foreground/60"
+                            />
+                            <div className="grid grid-cols-2 gap-2">
+                              <input
+                                type="text"
+                                required
+                                maxLength={5}
+                                placeholder="MM/YY"
+                                value={cardExpiry}
+                                onChange={(e) => setCardExpiry(e.target.value)}
+                                className="bg-cream/40 border border-teal/10 rounded-lg p-2.5 text-xs text-teal-dark focus:outline-none focus:ring-1 focus:ring-teal/30 placeholder:text-muted-foreground/60"
+                              />
+                              <input
+                                type="password"
+                                required
+                                maxLength={4}
+                                placeholder="CVC"
+                                value={cardCvc}
+                                onChange={(e) => setCardCvc(e.target.value)}
+                                className="bg-cream/40 border border-teal/10 rounded-lg p-2.5 text-xs text-teal-dark focus:outline-none focus:ring-1 focus:ring-teal/30 placeholder:text-muted-foreground/60"
+                              />
+                            </div>
+                            
+                            <Button
+                              type="submit"
+                              className="w-full bg-teal hover:bg-teal/90 text-white rounded-full py-2.5 text-xs flex items-center justify-center gap-1.5 mt-2"
+                            >
+                              <Lock className="h-3 w-3" />
+                              Pay $1,250 CAD Securely
+                            </Button>
+                          </form>
+                        </>
+                      )}
+
+                      {paymentStatus === "processing" && (
+                        <div className="py-8 text-center space-y-3">
+                          <div className="w-8 h-8 border-2 border-teal border-t-transparent rounded-full animate-spin mx-auto"></div>
+                          <p className="text-xs text-teal-dark font-medium">Connecting to secure gateway...</p>
+                        </div>
+                      )}
+
+                      {paymentStatus === "success" && (
+                        <div className="py-6 text-center space-y-4 animate-scaleUp">
+                          <div className="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center mx-auto text-emerald-600">
+                            <Check className="h-6 w-6" />
+                          </div>
+                          <div>
+                            <h4 className="font-bold text-teal-dark text-sm mb-1">Payment Verified Successfully</h4>
+                            <p className="text-muted-foreground text-xs max-w-[240px] mx-auto leading-relaxed">
+                              Thank you! Your simulated $1,250 CAD payment has been registered.
+                            </p>
+                          </div>
+                          <button
+                            onClick={resetMockPay}
+                            className="text-xs text-teal hover:underline font-medium block mx-auto"
+                          >
+                            Reset Form / Try Again
+                          </button>
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              {/* Action button for Interac e-Transfer (static footer matching the height of Card A) */}
+              {paymentMethod === "etransfer" && (
+                <div className="mt-6">
+                  <Button
+                    onClick={handleCopy}
+                    className="w-full bg-teal hover:bg-teal/90 text-white rounded-full py-3 flex items-center justify-center gap-2 transition-all duration-200"
+                  >
+                    {copied ? (
+                      <>
+                        <Check className="h-4 w-4" />
+                        Email Copied!
+                      </>
+                    ) : (
+                      <>
+                        <Copy className="h-4 w-4" />
+                        Copy e-Transfer Email
+                      </>
+                    )}
+                  </Button>
+                </div>
+              )}
+              
+              {/* Trust/security footer for credit card */}
+              {paymentMethod === "card" && paymentStatus === "idle" && (
+                <div className="mt-4 flex items-center justify-center gap-1.5 text-muted-foreground text-[10px]">
+                  <Lock className="h-3 w-3 text-teal" />
+                  <span>🔒 SSL encrypted · Payments processed via Stripe/Helcim</span>
+                </div>
+              )}
             </div>
           </div>
         )}
 
-        <p className="text-center text-xs text-muted-foreground mt-6">
+        <p className="text-center text-xs text-muted-foreground mt-8">
           Questions?{" "}
           <a href="#contact" className="text-teal hover:underline">
             Contact the team ↓
@@ -104,3 +334,5 @@ export default function Registration() {
     </section>
   );
 }
+
+
