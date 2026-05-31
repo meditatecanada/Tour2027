@@ -91,7 +91,6 @@ export default function Registration() {
             />
           </div>
         ) : (
-          /* Two-column layout when registration form is not active yet */
           <div className="grid md:grid-cols-2 gap-8 items-stretch">
             {/* Card A: Registration Status */}
             <div className="rounded-2xl border-2 border-dashed border-teal/30 bg-white p-8 md:p-10 text-center flex flex-col justify-between">
@@ -190,7 +189,7 @@ export default function Registration() {
                         <div className="text-xs pt-1">
                           <span className="text-muted-foreground block mb-1">Transfer Memo / Notes:</span>
                           <span className="text-teal-dark italic font-medium block">
-                            Include your full name & "Tour 2027"
+                            Include your full name and &quot;Tour 2027&quot;
                           </span>
                         </div>
                       </div>
