@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Copy, Check, ShieldCheck, CreditCard, Send, Lock } from "lucide-react";
 
@@ -10,11 +10,21 @@ const GOOGLE_FORM_URL = "";
 export default function Registration() {
   const [copied, setCopied] = useState(false);
   const [paymentMethod, setPaymentMethod] = useState<"etransfer" | "card">("etransfer");
-  const [cardName, setCardName] = useState("");
-  const [cardNumber, setCardNumber] = useState("");
-  const [cardExpiry, setCardExpiry] = useState("");
-  const [cardCvc, setCardCvc] = useState("");
-  const [paymentStatus, setPaymentStatus] = useState<"idle" | "processing" | "success">("idle");
+  const [paymentStatus, setPaymentStatus] = useState<"idle" | "processing" | "success" | "cancelled" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  useEffect(() => {
+    // Check if there are Stripe redirect parameters in the URL query string
+    const params = new URLSearchParams(window.location.search);
+    const payment = params.get("payment");
+    if (payment === "success") {
+      setPaymentStatus("success");
+      setPaymentMethod("card");
+    } else if (payment === "cancelled") {
+      setPaymentStatus("cancelled");
+      setPaymentMethod("card");
+    }
+  }, []);
 
   const handleCopy = () => {
     navigator.clipboard.writeText("mediatecanada2027@gmail.com");
@@ -22,22 +32,45 @@ export default function Registration() {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const handleMockPay = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!cardName || !cardNumber || !cardExpiry || !cardCvc) return;
-    
+  const handleStripePay = async () => {
     setPaymentStatus("processing");
-    setTimeout(() => {
-      setPaymentStatus("success");
-    }, 2000);
+    setErrorMessage("");
+
+    try {
+      const response = await fetch("/api/checkout", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Something went wrong. Please try again.");
+      }
+
+      if (data.url) {
+        // Redirect the user to Stripe Checkout
+        window.location.href = data.url;
+      } else {
+        throw new Error("Could not retrieve payment session URL.");
+      }
+    } catch (err: any) {
+      console.error(err);
+      setPaymentStatus("error");
+      setErrorMessage(err.message || "An unexpected error occurred. Please try again.");
+    }
   };
 
-  const resetMockPay = () => {
-    setCardName("");
-    setCardNumber("");
-    setCardExpiry("");
-    setCardCvc("");
+  const resetPayStatus = () => {
     setPaymentStatus("idle");
+    setErrorMessage("");
+    // Clean up URL query parameters so reloading doesn't keep triggering success/cancelled views
+    if (typeof window !== "undefined") {
+      const newUrl = window.location.pathname + window.location.hash;
+      window.history.replaceState({}, document.title, newUrl);
+    }
   };
 
   return (
@@ -164,7 +197,7 @@ export default function Registration() {
                     }`}
                   >
                     <CreditCard className="h-3 w-3" />
-                    Credit Card
+                    Credit Card / Online
                   </button>
                 </div>
 
@@ -196,67 +229,46 @@ export default function Registration() {
                     </div>
                   ) : (
                     <div className="space-y-4 animate-fadeIn">
-                      {paymentStatus === "idle" && (
+                      {(paymentStatus === "idle" || paymentStatus === "error") && (
                         <>
                           <p className="text-muted-foreground text-xs leading-relaxed text-center">
-                            Pay securely online using credit card, Apple Pay, or Google Pay (processed via Stripe/Helcim).
+                            Pay securely online using credit card, Apple Pay, or Google Pay (processed via Stripe).
                           </p>
                           
-                          {/* High-fidelity Mock Payment Form */}
-                          <form onSubmit={handleMockPay} className="space-y-2.5">
-                            <input
-                              type="text"
-                              required
-                              placeholder="Name on Card"
-                              value={cardName}
-                              onChange={(e) => setCardName(e.target.value)}
-                              className="w-full bg-cream/40 border border-teal/10 rounded-lg p-2.5 text-xs text-teal-dark focus:outline-none focus:ring-1 focus:ring-teal/30 placeholder:text-muted-foreground/60"
-                            />
-                            <input
-                              type="text"
-                              required
-                              maxLength={19}
-                              placeholder="Card Number (•••• •••• •••• ••••)"
-                              value={cardNumber}
-                              onChange={(e) => setCardNumber(e.target.value)}
-                              className="w-full bg-cream/40 border border-teal/10 rounded-lg p-2.5 text-xs text-teal-dark focus:outline-none focus:ring-1 focus:ring-teal/30 placeholder:text-muted-foreground/60"
-                            />
-                            <div className="grid grid-cols-2 gap-2">
-                              <input
-                                type="text"
-                                required
-                                maxLength={5}
-                                placeholder="MM/YY"
-                                value={cardExpiry}
-                                onChange={(e) => setCardExpiry(e.target.value)}
-                                className="bg-cream/40 border border-teal/10 rounded-lg p-2.5 text-xs text-teal-dark focus:outline-none focus:ring-1 focus:ring-teal/30 placeholder:text-muted-foreground/60"
-                              />
-                              <input
-                                type="password"
-                                required
-                                maxLength={4}
-                                placeholder="CVC"
-                                value={cardCvc}
-                                onChange={(e) => setCardCvc(e.target.value)}
-                                className="bg-cream/40 border border-teal/10 rounded-lg p-2.5 text-xs text-teal-dark focus:outline-none focus:ring-1 focus:ring-teal/30 placeholder:text-muted-foreground/60"
-                              />
+                          <div className="bg-cream/40 border border-teal/10 rounded-xl p-5 space-y-3.5 text-center">
+                            <p className="text-xs text-muted-foreground leading-relaxed">
+                              You will be redirected to Stripe&apos;s secure checkout page to complete your contribution using:
+                            </p>
+                            <div className="flex flex-wrap justify-center gap-2.5 py-1 text-teal-dark font-semibold text-[11px]">
+                              <span className="bg-white px-2.5 py-1 rounded-md border border-teal/10 shadow-sm">💳 Credit / Debit</span>
+                              <span className="bg-white px-2.5 py-1 rounded-md border border-teal/10 shadow-sm"> Apple Pay</span>
+                              <span className="bg-white px-2.5 py-1 rounded-md border border-teal/10 shadow-sm">🤖 Google Pay</span>
                             </div>
-                            
-                            <Button
-                              type="submit"
-                              className="w-full bg-[#65B784] hover:bg-[#65B784]/90 text-white rounded-full py-2.5 text-xs flex items-center justify-center gap-1.5 mt-2"
-                            >
-                              <Lock className="h-3 w-3" />
-                              Pay $1,250 CAD Securely
-                            </Button>
-                          </form>
+                            <p className="text-[10px] text-muted-foreground/80 leading-relaxed">
+                              * Canadian residents can pay using co-branded debit cards (Interac/Visa or Interac/Mastercard) via Apple Pay, Google Pay, or direct card entry.
+                            </p>
+                          </div>
+
+                          {paymentStatus === "error" && (
+                            <div className="p-3 bg-red-50 text-red-600 rounded-lg text-xs text-center font-medium border border-red-200">
+                              {errorMessage || "An error occurred. Please try again."}
+                            </div>
+                          )}
+                          
+                          <Button
+                            onClick={handleStripePay}
+                            className="w-full bg-[#65B784] hover:bg-[#65B784]/90 text-white rounded-full py-2.5 text-xs flex items-center justify-center gap-1.5 mt-2"
+                          >
+                            <Lock className="h-3 w-3" />
+                            Pay $1,250 CAD Securely
+                          </Button>
                         </>
                       )}
 
                       {paymentStatus === "processing" && (
-                        <div className="py-8 text-center space-y-3">
+                        <div className="py-8 text-center space-y-3 animate-fadeIn">
                           <div className="w-8 h-8 border-2 border-teal border-t-transparent rounded-full animate-spin mx-auto"></div>
-                          <p className="text-xs text-teal-dark font-medium">Connecting to secure gateway...</p>
+                          <p className="text-xs text-teal-dark font-medium">Connecting to Stripe secure gateway...</p>
                         </div>
                       )}
 
@@ -266,16 +278,36 @@ export default function Registration() {
                             <Check className="h-6 w-6" />
                           </div>
                           <div>
-                            <h4 className="font-bold text-teal-dark text-sm mb-1">Payment Verified Successfully</h4>
+                            <h4 className="font-bold text-teal-dark text-sm mb-1">Payment Received Successfully</h4>
                             <p className="text-muted-foreground text-xs max-w-[240px] mx-auto leading-relaxed">
-                              Thank you! Your simulated $1,250 CAD payment has been registered.
+                              Thank you! Your contribution of $1,250 CAD has been processed successfully.
                             </p>
                           </div>
                           <button
-                            onClick={resetMockPay}
+                            onClick={resetPayStatus}
+                            className="text-xs text-teal hover:underline font-medium block mx-auto animate-pulse"
+                          >
+                            Return to Form
+                          </button>
+                        </div>
+                      )}
+
+                      {paymentStatus === "cancelled" && (
+                        <div className="py-6 text-center space-y-4 animate-scaleUp">
+                          <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mx-auto text-amber-600">
+                            <span className="text-lg font-bold">!</span>
+                          </div>
+                          <div>
+                            <h4 className="font-bold text-teal-dark text-sm mb-1">Payment Cancelled</h4>
+                            <p className="text-muted-foreground text-xs max-w-[240px] mx-auto leading-relaxed">
+                              Your payment session was cancelled. No charges were made. You can try again or use Interac e-Transfer.
+                            </p>
+                          </div>
+                          <button
+                            onClick={resetPayStatus}
                             className="text-xs text-teal hover:underline font-medium block mx-auto"
                           >
-                            Reset Form / Try Again
+                            Reset / Try Again
                           </button>
                         </div>
                       )}
@@ -307,10 +339,10 @@ export default function Registration() {
               )}
               
               {/* Trust/security footer for credit card */}
-              {paymentMethod === "card" && paymentStatus === "idle" && (
+              {paymentMethod === "card" && (paymentStatus === "idle" || paymentStatus === "error") && (
                 <div className="mt-4 flex items-center justify-center gap-1.5 text-muted-foreground text-[10px]">
                   <Lock className="h-3 w-3 text-teal" />
-                  <span>🔒 SSL encrypted · Payments processed via Stripe/Helcim</span>
+                  <span>🔒 SSL encrypted · Payments processed via Stripe</span>
                 </div>
               )}
             </div>
@@ -327,5 +359,3 @@ export default function Registration() {
     </section>
   );
 }
-
-
