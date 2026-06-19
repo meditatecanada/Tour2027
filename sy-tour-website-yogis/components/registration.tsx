@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Copy, Check, ShieldCheck, CreditCard, Send, Lock } from "lucide-react";
+import { ExternalLink, Copy, Check, ShieldCheck, CreditCard, Send, Lock, X } from "lucide-react";
 
 // TODO: Replace with actual Google Form URL when created
 const GOOGLE_FORM_URL = "";
@@ -12,6 +12,18 @@ export default function Registration() {
   const [paymentMethod, setPaymentMethod] = useState<"etransfer" | "card">("etransfer");
   const [paymentStatus, setPaymentStatus] = useState<"idle" | "processing" | "success" | "cancelled" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
+  const [showFormModal, setShowFormModal] = useState(false);
+
+  useEffect(() => {
+    if (showFormModal) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [showFormModal]);
 
   useEffect(() => {
     // Check if there are Stripe redirect parameters in the URL query string
@@ -132,23 +144,19 @@ export default function Registration() {
                   <ExternalLink className="h-6 w-6 text-teal" />
                 </div>
                 <h3 className="font-heading text-2xl font-bold text-teal-dark mb-3">
-                  Registration Opening Soon
+                  Registration Open
                 </h3>
                 <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-                  The registration form will be available here once the tour is
-                  officially announced. Stay connected with your local collective
-                  for updates.
+                  The registration form is available here for the 2027 tour.
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-3 justify-center mt-auto">
                 <Button
                   size="default"
                   className="bg-[#65B784] hover:bg-[#65B784]/90 text-white rounded-full px-6 py-2 text-sm"
-                  onClick={() =>
-                    window.open("mailto:mediatecanada2027@gmail.com", "_blank")
-                  }
+                  onClick={() => setShowFormModal(true)}
                 >
-                  Express Interest by Email
+                  Register Interest
                 </Button>
                 <a href="#contact" className="inline-block">
                   <Button
@@ -356,6 +364,40 @@ export default function Registration() {
           </a>
         </p>
       </div>
+
+      {showFormModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-6 bg-black/60 backdrop-blur-sm transition-all duration-300">
+          <div className="relative w-full max-w-4xl h-[85vh] bg-white rounded-2xl shadow-2xl flex flex-col overflow-hidden border border-border">
+            {/* Modal Header */}
+            <div className="flex items-center justify-between px-6 py-4 border-b border-border bg-cream/40">
+              <h3 className="font-heading text-lg font-bold text-teal-dark">
+                Register Interest — Meditate Canada 2027
+              </h3>
+              <button
+                onClick={() => setShowFormModal(false)}
+                className="p-1.5 rounded-full hover:bg-black/5 text-muted-foreground hover:text-teal-dark transition-colors"
+                aria-label="Close modal"
+              >
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+            
+            {/* Modal Body / Iframe */}
+            <div className="flex-grow bg-cream/10 relative flex items-center justify-center">
+              {/* Spinner shown while loading */}
+              <div className="absolute inset-0 flex items-center justify-center bg-white z-0">
+                <div className="w-8 h-8 border-2 border-teal border-t-transparent rounded-full animate-spin"></div>
+              </div>
+              <iframe
+                src="https://docs.google.com/forms/d/1TJLczmjktNy0ON1LMPnlvJSHcu_3ZfVLORq8R48cKbQ/viewform?embedded=true"
+                className="w-full h-full relative z-10 border-0"
+                title="Meditate Canada 2027 — Registration Form"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
