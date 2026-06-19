@@ -39,7 +39,7 @@ export default function Registration() {
   }, []);
 
   const handleCopy = () => {
-    navigator.clipboard.writeText("mediatecanada2027@gmail.com");
+    navigator.clipboard.writeText("XXX@XXX.com");
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -221,7 +221,7 @@ export default function Registration() {
                       <div className="bg-cream/60 rounded-xl p-4 text-left border border-teal/10 space-y-2">
                         <div className="flex justify-between items-center text-xs pb-2 border-b border-teal/10">
                           <span className="text-muted-foreground">Recipient Email</span>
-                          <span className="font-mono font-bold text-teal-dark">mediatecanada2027@gmail.com</span>
+                          <span className="font-mono font-bold text-teal-dark">XXX@XXX.com</span>
                         </div>
                         <div className="flex justify-between items-center text-xs py-1 border-b border-teal/10">
                           <span className="text-muted-foreground">Amount</span>
@@ -389,7 +389,7 @@ export default function Registration() {
                 <div className="w-8 h-8 border-2 border-teal border-t-transparent rounded-full animate-spin"></div>
               </div>
               <iframe
-                src="https://docs.google.com/forms/d/1TJLczmjktNy0ON1LMPnlvJSHcu_3ZfVLORq8R48cKbQ/viewform?embedded=true"
+                src="https://docs.google.com/forms/d/e/1FAIpQLSdxKcysYnhWQrFXIXhzpQOsLAZgRBvk_944Y-HlBXnM2Jekkw/viewform"
                 className="w-full h-full relative z-10 border-0"
                 title="Meditate Canada 2027 — Registration Form"
                 loading="lazy"
