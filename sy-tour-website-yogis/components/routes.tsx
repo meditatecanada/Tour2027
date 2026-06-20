@@ -15,7 +15,7 @@ export default function Routes() {
           <p className="text-xs tracking-[0.3em] uppercase text-teal font-medium mb-3">
             Summer 2027
           </p>
-          <h2 className="font-heading text-4xl md:text-5xl font-bold text-teal-dark mb-4">
+          <h2 className="font-heading text-4xl md:text-5xl font-bold text-soul-stone-blue mb-4">
             The Four Routes
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto">
@@ -48,7 +48,7 @@ export default function Routes() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-black/10" />
 
               {/* Route number badge */}
-              <div className="absolute top-4 left-4 w-10 h-10 rounded-full bg-gold flex items-center justify-center shadow-lg">
+              <div className="absolute top-4 left-4 w-10 h-10 rounded-full bg-[#3194ED] flex items-center justify-center shadow-lg">
                 <span className="font-heading font-bold text-white text-sm">
                   {route.id}
                 </span>
@@ -104,7 +104,7 @@ export default function Routes() {
                     key={route.id}
                     className="text-center py-2 px-3 rounded-lg bg-teal-dark/10"
                   >
-                    <p className="text-xs font-bold text-teal-dark uppercase tracking-wide">
+                    <p className="text-xs font-bold text-soul-stone-blue uppercase tracking-wide">
                       {route.name}
                     </p>
                   </div>
@@ -143,7 +143,7 @@ export default function Routes() {
               </div>
 
               {/* Canajoharie */}
-              <div className="bg-gold text-white rounded-xl py-3 px-4 text-center mx-8 md:mx-20">
+              <div className="bg-[#3194ED] text-white rounded-xl py-3 px-4 text-center mx-8 md:mx-20">
                 <p className="font-heading font-bold text-sm">
                   International Shri Krishna Puja
                 </p>

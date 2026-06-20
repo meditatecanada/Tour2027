@@ -21,7 +21,7 @@ export default function Footer() {
               alt="Meditate Canada Tour 2027"
               height={60}
               width={220}
-              className="h-24 w-auto mb-4"
+              className="h-32 w-auto mb-4"
             />
             <p className="text-white/60 text-sm leading-relaxed">
               A cross-Canada Sahaja Yoga realization tour.

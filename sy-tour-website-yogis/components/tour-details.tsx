@@ -54,7 +54,7 @@ export default function TourDetails() {
           <p className="text-xs tracking-[0.3em] uppercase text-teal font-medium mb-3">
             What to Expect
           </p>
-          <h2 className="font-heading text-4xl md:text-5xl font-bold text-teal-dark mb-4">
+          <h2 className="font-heading text-4xl md:text-5xl font-bold text-soul-stone-blue mb-4">
             Tour Details
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto">
@@ -94,7 +94,7 @@ export default function TourDetails() {
                 <div className="w-10 h-10 rounded-lg bg-teal/10 flex items-center justify-center mb-4">
                   <Icon className="h-5 w-5 text-teal" />
                 </div>
-                <h3 className="font-heading font-bold text-lg text-teal-dark mb-2">
+                <h3 className="font-heading font-bold text-lg text-soul-stone-blue mb-2">
                   {item.title}
                 </h3>
                 <p className="text-sm text-charcoal/70 leading-relaxed mb-3">

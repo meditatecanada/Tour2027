@@ -57,10 +57,10 @@ export default function Culmination() {
           </div>
 
           {/* Krishna Puja */}
-          <div className="rounded-2xl bg-gold/20 border border-gold/30 p-8">
+          <div className="rounded-2xl bg-light-terracotta/20 border border-light-terracotta/30 p-8">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-full bg-gold/30 flex items-center justify-center">
-                <Users className="h-5 w-5 text-gold-light" />
+              <div className="w-10 h-10 rounded-full bg-light-terracotta/30 flex items-center justify-center">
+                <Users className="h-5 w-5 text-light-terracotta" />
               </div>
               <div>
                 <p className="text-xs uppercase tracking-wider text-white/50">

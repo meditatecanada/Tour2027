@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { quotes } from "@/lib/routes-data";
 
 export default function About() {
@@ -8,8 +9,17 @@ export default function About() {
       {/* Main about content */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-20 md:py-28">
         <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-start">
-          {/* Left: quote */}
+          {/* Left: photo + quote */}
           <div>
+            <div className="rounded-2xl overflow-hidden mb-6 shadow-md">
+              <Image
+                src="/shri-mataji-kids.jpeg"
+                alt="Shri Mataji with children"
+                width={800}
+                height={600}
+                className="w-full h-auto object-cover"
+              />
+            </div>
             <p className="text-xs tracking-[0.3em] uppercase text-teal font-medium mb-6">
               In Our Mother&apos;s Words
             </p>
@@ -17,11 +27,11 @@ export default function About() {
               <span className="absolute -top-4 -left-2 text-7xl font-heading text-teal/20 leading-none select-none">
                 &ldquo;
               </span>
-              <p className="font-quote text-xl md:text-2xl leading-relaxed text-[#6D9F64] italic pl-4 relative z-10">
+              <p className="font-quote text-xl md:text-2xl leading-relaxed text-light-terracotta italic pl-4 relative z-10">
                 {primary.text}
               </p>
               <footer className="mt-6 pl-4">
-                <p className="text-sm font-medium text-teal-dark">
+                <p className="text-sm font-medium text-soul-stone-blue">
                   {primary.attribution}
                 </p>
                 <p className="text-xs text-muted-foreground mt-0.5">
@@ -33,10 +43,10 @@ export default function About() {
 
           {/* Right: vision */}
           <div>
-            <p className="text-xs tracking-[0.3em] uppercase text-gold font-medium mb-6">
+            <p className="text-xs tracking-[0.3em] uppercase text-[#3194ED] font-medium mb-6">
               About the Tour
             </p>
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-teal-dark leading-tight mb-6">
+            <h2 className="font-heading text-3xl md:text-4xl font-bold text-soul-stone-blue leading-tight mb-6">
               Vibrating Canada — from Sea to Sea
             </h2>
             <div className="space-y-4 text-charcoal/80 leading-relaxed">
