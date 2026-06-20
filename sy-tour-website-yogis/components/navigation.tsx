@@ -47,9 +47,9 @@ export default function Navigation() {
           className="flex items-center"
         >
           <Image
-            src="/logo-clear.png"
+            src="/meditate-canada-logo.jpeg"
             alt="Meditate Canada Tour 2027"
-            height={60}
+            height={56}
             width={200}
             priority
             className="h-14 w-auto"
@@ -102,10 +102,10 @@ export default function Navigation() {
             <div className="flex flex-col gap-1 mt-8">
               <div className="mb-6">
                 <Image
-                  src="/logo-clear.png"
+                  src="/meditate-canada-logo.jpeg"
                   alt="Meditate Canada Tour 2027"
-                  height={60}
-                  width={200}
+                  height={64}
+                  width={220}
                   className="h-16 w-auto"
                 />
               </div>
