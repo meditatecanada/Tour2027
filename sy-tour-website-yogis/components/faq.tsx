@@ -50,7 +50,7 @@ export default function FAQ() {
           <p className="text-xs tracking-[0.3em] uppercase text-teal font-medium mb-3">
             Common Questions
           </p>
-          <h2 className="font-heading text-4xl md:text-5xl font-bold text-teal-dark mb-4">
+          <h2 className="font-heading text-4xl md:text-5xl font-bold text-soul-stone-blue mb-4">
             FAQ
           </h2>
           <p className="text-muted-foreground">

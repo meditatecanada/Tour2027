@@ -93,7 +93,7 @@ export default function Registration() {
           <p className="text-xs tracking-[0.3em] uppercase text-teal font-medium mb-3">
             Participate
           </p>
-          <h2 className="font-heading text-4xl md:text-5xl font-bold text-teal-dark mb-4">
+          <h2 className="font-heading text-4xl md:text-5xl font-bold text-soul-stone-blue mb-4">
             Join the Tour
           </h2>
           <p className="text-muted-foreground max-w-lg mx-auto leading-relaxed">
@@ -116,7 +116,7 @@ export default function Registration() {
               <p className="text-xs uppercase tracking-wider text-muted-foreground mb-1">
                 {item.label}
               </p>
-              <p className="font-heading font-bold text-teal-dark text-lg leading-tight">
+              <p className="font-heading font-bold text-soul-stone-blue text-lg leading-tight">
                 {item.value}
               </p>
               <p className="text-xs text-muted-foreground mt-1">{item.note}</p>
@@ -143,7 +143,7 @@ export default function Registration() {
                 <div className="w-14 h-14 rounded-full bg-teal/10 flex items-center justify-center mx-auto mb-6">
                   <ExternalLink className="h-6 w-6 text-teal" />
                 </div>
-                <h3 className="font-heading text-2xl font-bold text-teal-dark mb-3">
+                <h3 className="font-heading text-2xl font-bold text-soul-stone-blue mb-3">
                   Registration Open
                 </h3>
                 <p className="text-muted-foreground text-sm leading-relaxed mb-6">
@@ -176,7 +176,7 @@ export default function Registration() {
                 <div className="w-14 h-14 rounded-full bg-teal/10 flex items-center justify-center mx-auto mb-6">
                   <ShieldCheck className="h-6 w-6 text-teal" />
                 </div>
-                <h3 className="font-heading text-2xl font-bold text-teal-dark mb-2">
+                <h3 className="font-heading text-2xl font-bold text-soul-stone-blue mb-2">
                   Tour Contribution
                 </h3>
                 <p className="text-muted-foreground text-xs leading-relaxed mb-6">
@@ -190,7 +190,7 @@ export default function Registration() {
                     className={`py-2.5 px-3 rounded-lg text-xs font-semibold flex items-center justify-center gap-1.5 transition-all duration-200 ${
                       paymentMethod === "etransfer"
                         ? "bg-[#65B784] text-white shadow-sm"
-                        : "text-muted-foreground hover:text-teal-dark"
+                        : "text-muted-foreground hover:text-soul-stone-blue"
                     }`}
                   >
                     <Send className="h-3 w-3" />
@@ -201,7 +201,7 @@ export default function Registration() {
                     className={`py-2.5 px-3 rounded-lg text-xs font-semibold flex items-center justify-center gap-1.5 transition-all duration-200 ${
                       paymentMethod === "card"
                         ? "bg-[#65B784] text-white shadow-sm"
-                        : "text-muted-foreground hover:text-teal-dark"
+                        : "text-muted-foreground hover:text-soul-stone-blue"
                     }`}
                   >
                     <CreditCard className="h-3 w-3" />
@@ -221,15 +221,15 @@ export default function Registration() {
                       <div className="bg-cream/60 rounded-xl p-4 text-left border border-teal/10 space-y-2">
                         <div className="flex justify-between items-center text-xs pb-2 border-b border-teal/10">
                           <span className="text-muted-foreground">Recipient Email</span>
-                          <span className="font-mono font-bold text-teal-dark">XXX@XXX.com</span>
+                          <span className="font-mono font-bold text-soul-stone-blue">XXX@XXX.com</span>
                         </div>
                         <div className="flex justify-between items-center text-xs py-1 border-b border-teal/10">
                           <span className="text-muted-foreground">Amount</span>
-                          <span className="font-bold text-teal-dark">$1,250 CAD</span>
+                          <span className="font-bold text-soul-stone-blue">$1,250 CAD</span>
                         </div>
                         <div className="text-xs pt-1">
                           <span className="text-muted-foreground block mb-1">Transfer Memo / Notes:</span>
-                          <span className="text-teal-dark italic font-medium block">
+                          <span className="text-soul-stone-blue italic font-medium block">
                             Include your full name and &quot;Tour 2027&quot;
                           </span>
                         </div>
@@ -247,7 +247,7 @@ export default function Registration() {
                             <p className="text-xs text-muted-foreground leading-relaxed">
                               You will be redirected to Stripe&apos;s secure checkout page to complete your contribution using:
                             </p>
-                            <div className="flex flex-wrap justify-center gap-2.5 py-1 text-teal-dark font-semibold text-[11px]">
+                            <div className="flex flex-wrap justify-center gap-2.5 py-1 text-soul-stone-blue font-semibold text-[11px]">
                               <span className="bg-white px-2.5 py-1 rounded-md border border-teal/10 shadow-sm">💳 Credit / Debit</span>
                               <span className="bg-white px-2.5 py-1 rounded-md border border-teal/10 shadow-sm"> Apple Pay</span>
                               <span className="bg-white px-2.5 py-1 rounded-md border border-teal/10 shadow-sm">🤖 Google Pay</span>
@@ -276,7 +276,7 @@ export default function Registration() {
                       {paymentStatus === "processing" && (
                         <div className="py-8 text-center space-y-3 animate-fadeIn">
                           <div className="w-8 h-8 border-2 border-teal border-t-transparent rounded-full animate-spin mx-auto"></div>
-                          <p className="text-xs text-teal-dark font-medium">Connecting to Stripe secure gateway...</p>
+                          <p className="text-xs text-soul-stone-blue font-medium">Connecting to Stripe secure gateway...</p>
                         </div>
                       )}
 
@@ -286,7 +286,7 @@ export default function Registration() {
                             <Check className="h-6 w-6" />
                           </div>
                           <div>
-                            <h4 className="font-bold text-teal-dark text-sm mb-1">Payment Received Successfully</h4>
+                            <h4 className="font-bold text-soul-stone-blue text-sm mb-1">Payment Received Successfully</h4>
                             <p className="text-muted-foreground text-xs max-w-[240px] mx-auto leading-relaxed">
                               Thank you! Your contribution of $1,250 CAD has been processed successfully.
                             </p>
@@ -306,7 +306,7 @@ export default function Registration() {
                             <span className="text-lg font-bold">!</span>
                           </div>
                           <div>
-                            <h4 className="font-bold text-teal-dark text-sm mb-1">Payment Cancelled</h4>
+                            <h4 className="font-bold text-soul-stone-blue text-sm mb-1">Payment Cancelled</h4>
                             <p className="text-muted-foreground text-xs max-w-[240px] mx-auto leading-relaxed">
                               Your payment session was cancelled. No charges were made. You can try again or use Interac e-Transfer.
                             </p>
@@ -370,12 +370,12 @@ export default function Registration() {
           <div className="relative w-full max-w-4xl h-[85vh] bg-white rounded-2xl shadow-2xl flex flex-col overflow-hidden border border-border">
             {/* Modal Header */}
             <div className="flex items-center justify-between px-6 py-4 border-b border-border bg-cream/40">
-              <h3 className="font-heading text-lg font-bold text-teal-dark">
+              <h3 className="font-heading text-lg font-bold text-soul-stone-blue">
                 Register Interest — Meditate Canada 2027
               </h3>
               <button
                 onClick={() => setShowFormModal(false)}
-                className="p-1.5 rounded-full hover:bg-black/5 text-muted-foreground hover:text-teal-dark transition-colors"
+                className="p-1.5 rounded-full hover:bg-black/5 text-muted-foreground hover:text-soul-stone-blue transition-colors"
                 aria-label="Close modal"
               >
                 <X className="h-5 w-5" />

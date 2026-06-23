@@ -21,7 +21,7 @@ export default function Contact() {
           <p className="text-xs tracking-[0.3em] uppercase text-teal font-medium mb-3">
             Get In Touch
           </p>
-          <h2 className="font-heading text-4xl md:text-5xl font-bold text-teal-dark mb-4">
+          <h2 className="font-heading text-4xl md:text-5xl font-bold text-soul-stone-blue mb-4">
             Contact &amp; Donate
           </h2>
           <p className="text-muted-foreground max-w-md mx-auto">
@@ -37,7 +37,7 @@ export default function Contact() {
               <div className="w-10 h-10 rounded-full bg-teal/10 flex items-center justify-center">
                 <Mail className="h-5 w-5 text-teal" />
               </div>
-              <h3 className="font-heading text-xl font-bold text-teal-dark">
+              <h3 className="font-heading text-xl font-bold text-soul-stone-blue">
                 Contact the Team
               </h3>
             </div>
@@ -85,12 +85,12 @@ export default function Contact() {
           </div>
 
           {/* Donate card */}
-          <div className="rounded-2xl border border-gold/40 bg-gradient-to-br from-gold/5 to-transparent p-8">
+          <div className="rounded-2xl border border-light-terracotta/40 bg-gradient-to-br from-light-terracotta/5 to-transparent p-8">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-full bg-gold/15 flex items-center justify-center">
-                <Heart className="h-5 w-5 text-gold" />
+              <div className="w-10 h-10 rounded-full bg-light-terracotta/15 flex items-center justify-center">
+                <Heart className="h-5 w-5 text-light-terracotta" />
               </div>
-              <h3 className="font-heading text-xl font-bold text-teal-dark">
+              <h3 className="font-heading text-xl font-bold text-soul-stone-blue">
                 Support the Tour
               </h3>
             </div>
@@ -114,7 +114,7 @@ export default function Contact() {
               </div>
               <div className="flex justify-between text-xs text-muted-foreground">
                 <span>$0 raised</span>
-                <span className="font-medium text-teal-dark">
+                <span className="font-medium text-soul-stone-blue">
                   $50,000 goal
                 </span>
               </div>

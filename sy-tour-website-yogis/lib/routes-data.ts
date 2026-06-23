@@ -19,9 +19,8 @@ export const routes: Route[] = [
     cities: ["Victoria", "Kelowna", "Kamloops", "Edmonton", "Calgary"],
     description:
       "Beginning at the Pacific shore and journeying through British Columbia into Alberta — forests, mountains, and the vibrations of the West.",
-    image:
-      "https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=1200&q=80",
-    imageAlt: "Mountains and forest, British Columbia, Canada",
+    image: "/rockies.jpg",
+    imageAlt: "Rocky Mountains, British Columbia, Canada",
     accentColor: "#3eccb5",
   },
   {
@@ -32,9 +31,8 @@ export const routes: Route[] = [
     cities: ["Winnipeg", "Saskatoon", "Regina", "Lethbridge"],
     description:
       "Crossing the vast interior of Canada — under immense skies and golden horizons, vibrating the heart of the nation.",
-    image:
-      "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1200&q=80",
-    imageAlt: "Prairie landscape at golden hour, Canada",
+    image: "/buffalo.avif",
+    imageAlt: "Buffalo on the Canadian Prairies",
     accentColor: "#c9933a",
   },
   {
@@ -45,9 +43,8 @@ export const routes: Route[] = [
     cities: ["Thunder Bay", "Sudbury", "Ottawa", "Toronto"],
     description:
       "Following the shores of the Great Lakes through Ontario — from smaller communities to the final Mega Program in Toronto.",
-    image:
-      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1200&q=80",
-    imageAlt: "Great Lakes shoreline, Ontario, Canada",
+    image: "/niagra.jpg",
+    imageAlt: "Niagara Falls, Ontario, Canada",
     accentColor: "#c084a5",
   },
   {
@@ -58,9 +55,8 @@ export const routes: Route[] = [
     cities: ["Halifax", "Moncton", "Fredericton", "Quebec City", "Montréal"],
     description:
       "From the Atlantic shores through the eastern provinces — bringing vibrations to the coastlines and awakening the East.",
-    image:
-      "https://images.unsplash.com/photo-1559827291-72ee739d0d9a?auto=format&fit=crop&w=1200&q=80",
-    imageAlt: "Coastal Nova Scotia, Maritime Canada",
+    image: "/big-maritime.jpg",
+    imageAlt: "Lighthouse on the Maritime coast, Atlantic Canada",
     accentColor: "#3eccb5",
   },
 ];
