@@ -1,10 +1,11 @@
+import Image from "next/image";
 import { MapPin, Music, Users } from "lucide-react";
 
 export default function Culmination() {
   return (
     <section
       id="culmination"
-      className="bg-[#004AAD] text-white py-20 md:py-28"
+      className="bg-[#004AAD] text-white pt-20 md:pt-28 pb-8"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {/* Section header */}
@@ -105,6 +106,16 @@ export default function Culmination() {
           <p className="text-xs text-white/40 mt-4">
             H.H. Shri Mataji Nirmala Devi · October 9th, 1983 · Toronto, Canada
           </p>
+          <div className="flex justify-center mt-8">
+            <Image
+              src="/white-kundalini.png"
+              alt="Kundalini"
+              width={220}
+              height={150}
+              className="opacity-100 brightness-125"
+              style={{ mixBlendMode: "screen" }}
+            />
+          </div>
         </div>
       </div>
     </section>

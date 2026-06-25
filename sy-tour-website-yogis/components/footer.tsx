@@ -82,13 +82,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="font-heading text-xl italic text-gold-light">
-            Jai Shri Mataji 🙏
-          </p>
-          <p className="text-white/40 text-sm">
-            © 2027 Meditate Canada Tour Team. All rights reserved.
-          </p>
+        <div className="border-t border-white/10 pt-8">
         </div>
       </div>
     </footer>
