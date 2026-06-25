@@ -33,14 +33,14 @@ const details = [
     icon: Plane,
     title: "Getting to Canada",
     description:
-      "International participants are responsible for arranging their own flights to the starting city of their chosen route. The tour can accommodate partial participation.",
+      "International participants are responsible for arranging their own flights to the starting city of their chosen route.",
     note: "Early registration helps secure your place and plan travel in advance.",
   },
   {
     icon: Heart,
     title: "Online Support",
     description:
-      "Simultaneous online follow-up classes run throughout the tour at 7 PM EST daily, allowing yogis who cannot attend physically to support the journey.",
+      "Simultaneous online follow-up classes run throughout the tour at 7 PM EST daily, allowing seekers to continue their journey in Sahaja Yoga.",
     note: "Co-ordinated alongside Sahaj.me or the 21 Days online programme.",
   },
 ];
@@ -75,11 +75,6 @@ export default function TourDetails() {
           <p className="text-white/60 text-sm">
             Per person · ~22 days · Accommodation, transport &amp; meals included
           </p>
-          <div className="flex flex-wrap justify-center gap-4 mt-6 text-xs text-white/60">
-            <span>✓ Comparable to Realiza Brazil 2026</span>
-            <span>✓ Comparable to Europe Tour 2026</span>
-            <span>✓ Flights separate</span>
-          </div>
         </div>
 
         {/* Detail cards */}

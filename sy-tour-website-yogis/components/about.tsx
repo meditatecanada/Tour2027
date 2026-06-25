@@ -72,7 +72,7 @@ export default function About() {
               {[
                 { value: "4", label: "Routes" },
                 { value: "~22", label: "Days" },
-                { value: "120+", label: "Yogis" },
+                { value: "108+", label: "Yogis" },
               ].map((stat) => (
                 <div key={stat.label}>
                   <p className="font-heading text-3xl font-bold text-teal">
