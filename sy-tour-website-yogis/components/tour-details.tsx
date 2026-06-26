@@ -65,15 +65,28 @@ export default function TourDetails() {
 
         {/* Cost highlight banner */}
         <div className="bg-gradient-to-r from-teal-dark to-teal rounded-2xl p-8 text-white text-center mb-12">
-          <p className="text-white/70 text-sm mb-2 tracking-wide">
+          <p className="text-white/70 text-sm mb-6 tracking-wide uppercase">
             All-inclusive participation fee
           </p>
-          <p className="font-heading text-5xl md:text-6xl font-bold text-white mb-2">
-            $1,250
-            <span className="text-2xl font-normal text-white/70 ml-2">CAD</span>
-          </p>
-          <p className="text-white/60 text-sm">
-            Per person · ~22 days · Accommodation, transport &amp; meals included
+          <div className="flex justify-between items-center mb-6 px-24">
+            <div className="text-center">
+              <p className="font-heading text-6xl md:text-7xl font-bold text-white leading-none">
+                $1,250
+              </p>
+              <p className="text-white/60 text-sm mt-2">Working Yogis</p>
+            </div>
+            <div className="text-center">
+              <p className="text-white/70 text-3xl font-semibold tracking-widest uppercase">CAD</p>
+            </div>
+            <div className="text-center">
+              <p className="font-heading text-6xl md:text-7xl font-bold text-white leading-none">
+                $900
+              </p>
+              <p className="text-white/60 text-sm mt-2">Non-working Yogis</p>
+            </div>
+          </div>
+          <p className="text-white/50 text-xs tracking-wide">
+            21 days · Accommodation, transport &amp; meals included
           </p>
         </div>
 

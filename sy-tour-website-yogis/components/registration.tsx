@@ -98,22 +98,40 @@ export default function Registration() {
 
         {/* Cost highlight */}
         <div className="flex flex-wrap justify-center gap-6 mb-12">
+          {/* Participation Fee card with two tiers */}
+          <div className="text-center bg-white rounded-xl px-6 py-5 shadow-sm border border-border min-w-[180px] flex flex-col items-center">
+            <p className="text-xs uppercase tracking-wider text-muted-foreground mb-2">
+              Participation Fee
+            </p>
+            <div className="flex flex-col gap-1">
+              <div>
+                <p className="font-heading font-bold text-soul-stone-blue text-lg leading-tight">$1,250 CAD</p>
+                <p className="text-xs text-muted-foreground">Working Yogis</p>
+              </div>
+              <div>
+                <p className="font-heading font-bold text-soul-stone-blue text-lg leading-tight">$900 CAD</p>
+                <p className="text-xs text-muted-foreground">Non-Working Yogis</p>
+              </div>
+            </div>
+          </div>
+
           {[
-            { label: "Participation Fee", value: "$1,250 CAD", note: "per person, ~22 days" },
-            { label: "Includes", value: "Accommodation, Transport & Meals", note: "collective hosting prioritised" },
-            { label: "Flexibility", value: "Choose your route", note: "Four unique routes" },
+            { label: "Includes", value: "Accommodation, Transport & Meals", note: "Collective Hosting Prioritised" },
+            { label: "Flexibility", value: "Choose Your Experience", note: "Four Unique Routes" },
           ].map((item) => (
             <div
               key={item.label}
-              className="text-center bg-white rounded-xl px-6 py-5 shadow-sm border border-border min-w-[180px]"
+              className="text-center bg-white rounded-xl px-6 py-5 shadow-sm border border-border min-w-[180px] flex flex-col items-center"
             >
               <p className="text-xs uppercase tracking-wider text-muted-foreground mb-1">
                 {item.label}
               </p>
-              <p className="font-heading font-bold text-soul-stone-blue text-lg leading-tight">
-                {item.value}
-              </p>
-              <p className="text-xs text-muted-foreground mt-1">{item.note}</p>
+              <div className="flex-1 flex flex-col items-center justify-center">
+                <p className="font-heading font-bold text-soul-stone-blue text-lg leading-tight">
+                  {item.value}
+                </p>
+                <p className="text-xs text-muted-foreground mt-1">{item.note}</p>
+              </div>
             </div>
           ))}
         </div>
