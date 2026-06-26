@@ -68,7 +68,7 @@ export default function TourDetails() {
           <p className="text-white/70 text-sm mb-6 tracking-wide uppercase">
             All-inclusive participation fee
           </p>
-          <div className="flex justify-between items-center mb-6 px-24">
+          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-6 sm:px-24 gap-6 sm:gap-0">
             <div className="text-center">
               <p className="font-heading text-6xl md:text-7xl font-bold text-white leading-none">
                 $1,250
