@@ -73,7 +73,7 @@ export default function TourDetails() {
               <p className="font-heading text-6xl md:text-7xl font-bold text-white leading-none">
                 $1,250
               </p>
-              <p className="text-white/60 text-sm mt-2">Working Yogis</p>
+              <p className="text-white/60 text-sm mt-2">Regular</p>
             </div>
             <div className="text-center">
               <p className="text-white/70 text-3xl font-semibold tracking-widest uppercase">CAD</p>
@@ -82,7 +82,7 @@ export default function TourDetails() {
               <p className="font-heading text-6xl md:text-7xl font-bold text-white leading-none">
                 $900
               </p>
-              <p className="text-white/60 text-sm mt-2">Non-working Yogis</p>
+              <p className="text-white/60 text-sm mt-2">Subsidized</p>
             </div>
           </div>
           <p className="text-white/50 text-xs tracking-wide">

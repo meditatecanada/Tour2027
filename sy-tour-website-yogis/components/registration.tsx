@@ -106,11 +106,11 @@ export default function Registration() {
             <div className="flex flex-col gap-1">
               <div>
                 <p className="font-heading font-bold text-soul-stone-blue text-lg leading-tight">$1,250 CAD</p>
-                <p className="text-xs text-muted-foreground">Working Yogis</p>
+                <p className="text-xs text-muted-foreground">Regular</p>
               </div>
               <div>
                 <p className="font-heading font-bold text-soul-stone-blue text-lg leading-tight">$900 CAD</p>
-                <p className="text-xs text-muted-foreground">Non-Working Yogis</p>
+                <p className="text-xs text-muted-foreground">Subsidized</p>
               </div>
             </div>
           </div>
