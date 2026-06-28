@@ -57,11 +57,10 @@ export default function Footer() {
               Questions about the tour or registration?
             </p>
             <a
-              href="mailto:mediatecanada2027@gmail.com"
+              href="mailto:meditate.canada@sahaja.ca"
               className="text-teal hover:text-teal/80 text-sm transition-colors"
             >
-              {/* TODO: Replace with actual team email */}
-              mediatecanada2027@gmail.com
+              meditate.canada@sahaja.ca
             </a>
             <div className="flex gap-4 mt-4">
               <a
