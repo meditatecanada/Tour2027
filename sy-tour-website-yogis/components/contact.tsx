@@ -8,7 +8,7 @@ const teamContacts = [
   {
     name: "Tour Team",
     role: "General Enquiries",
-    email: "mediatecanada2027@gmail.com",
+    email: "meditate.canada@sahaja.ca",
     // whatsapp: "+1 XXX XXX XXXX",
   },
 ];
@@ -76,7 +76,7 @@ export default function Contact() {
             </div>
 
             <div className="mt-6">
-              <a href="mailto:mediatecanada2027@gmail.com">
+              <a href="mailto:meditate.canada@sahaja.ca">
                 <Button className="w-full bg-teal hover:bg-teal/90 text-white rounded-full">
                   Send an Email
                 </Button>
