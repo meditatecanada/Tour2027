@@ -260,7 +260,13 @@ export default function Registration() {
                           </div>
                         )}
 
+                        <div className="text-center text-xs text-amber-700 bg-amber-50 border border-amber-200/60 rounded-lg py-2 px-3 font-medium">
+                          Note: This feature is Under Work in Progress
+                        </div>
+
+                        {/* To enable the payment button, set the disabled prop to false (disabled={false}) */}
                         <Button
+                          disabled={true}
                           onClick={handleStripePay}
                           className="w-full bg-[#65B784] hover:bg-[#65B784]/90 text-white rounded-full py-2.5 text-xs flex items-center justify-center gap-1.5 mt-2"
                         >
