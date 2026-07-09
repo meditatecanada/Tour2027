@@ -328,8 +328,14 @@ export default function Registration() {
             </div>
 
             {paymentMethod === "etransfer" && (
-              <div className="mt-6">
+              <div className="mt-6 space-y-3">
+                <div className="text-center text-xs text-amber-700 bg-amber-50 border border-amber-200/60 rounded-lg py-2 px-3 font-medium animate-fadeIn">
+                  Note: This feature is Under Work in Progress
+                </div>
+
+                {/* To enable the e-Transfer button, set the disabled prop to false (disabled={false}) */}
                 <Button
+                  disabled={true}
                   onClick={handleCopy}
                   className="w-full bg-[#65B784] hover:bg-[#65B784]/90 text-white rounded-full py-3 flex items-center justify-center gap-2 transition-all duration-200"
                 >
