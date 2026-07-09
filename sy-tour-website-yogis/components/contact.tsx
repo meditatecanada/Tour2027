@@ -140,18 +140,22 @@ export default function Contact() {
         <div className="mt-12 text-center">
           <p className="text-sm text-muted-foreground mb-4">Follow our journey</p>
           <div className="flex justify-center gap-4">
-            <a
-              href="#"
-              className="px-5 py-2 rounded-full border border-border text-sm text-charcoal hover:border-teal hover:text-teal transition-colors"
+            <button
+              type="button"
+              disabled
+              aria-disabled="true"
+              className="px-5 py-2 rounded-full border border-border text-sm text-charcoal/50 cursor-not-allowed"
             >
               Instagram
-            </a>
-            <a
-              href="#"
-              className="px-5 py-2 rounded-full border border-border text-sm text-charcoal hover:border-teal hover:text-teal transition-colors"
+            </button>
+            <button
+              type="button"
+              disabled
+              aria-disabled="true"
+              className="px-5 py-2 rounded-full border border-border text-sm text-charcoal/50 cursor-not-allowed"
             >
               Facebook
-            </a>
+            </button>
           </div>
         </div>
       </div>

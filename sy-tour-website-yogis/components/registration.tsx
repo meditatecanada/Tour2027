@@ -144,10 +144,10 @@ export default function Registration() {
                 <ExternalLink className="h-6 w-6 text-teal" />
               </div>
               <h3 className="font-heading text-2xl font-bold text-soul-stone-blue mb-3">
-                Registration Open
+                Pre-Registration Open
               </h3>
               <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-                The registration form is available here for the 2027 tour.
+                The pre-registration form is available here for the 2027 tour.
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-3 justify-center mt-auto">
