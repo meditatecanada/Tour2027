@@ -10,7 +10,7 @@ import {
 const faqs = [
   {
     q: "Do I need to join the full tour or can I join part of it?",
-    a: "You are welcome to join for part or the whole tour. When registering, you can indicate which route and which portion of the tour you'd like to participate in. The tour is designed with flexibility in mind for yogis from different regions.",
+    a: "You are welcome to join for part or the whole tour, however we recommend attending the whole tour. Yogis who are able to attend the complete tour will be given first priority. Then, spot dependent, we will try our best to accommodate requests for partial participation. When registering, you can indicate which route and which portion of the tour you'd like to participate in.",
   },
   {
     q: "What is included in the $1,250 CAD participation fee?",
@@ -34,11 +34,11 @@ const faqs = [
   },
   {
     q: "How is the tour funded, and how can I donate?",
-    a: "The tour is funded through three streams: participant contributions (~$150,000), fundraising and grants (minimum $50,000 goal), and a marketing allocation from the CNC. Donations are gratefully accepted and help subsidise costs for yogis who need financial assistance. A donation link will be available on this site shortly.",
+    a: "Our goal is to create a tour which is financially feasible for all interested yogis. As such, while we are doing our best to cover our costs with participant contribution and local yogi support, donations are gratefully appreciated. Any support is humbly accepted, and will directly help subsidise costs for yogis who need financial assistance. A donation link will be available on this site shortly.",
   },
   {
-    q: "What kinds of programs will the tour run?",
-    a: "Each stop will include a range of programs: library talks, open booth events, festival appearances, children's and corporate meditation classes, park programs, and concert hall bookings featuring yogi musicians and dancers. All programs are booked in advance to maximise efficiency during the tour itself.",
+    q: "I want to pre-register, but don't know what route to pick yet?",
+    a: "The purpose of the pre-registration form is simply to indicate which route is grabbing your attention; your choice on the form does not bind you to a specific route. We recommend staying open to all possibilities so attendees can be vibrationally allocated to their perfect fit.",
   },
 ];
 
