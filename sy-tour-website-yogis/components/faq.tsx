@@ -40,6 +40,22 @@ const faqs = [
     q: "I want to pre-register, but don't know what route to pick yet?",
     a: "The purpose of the pre-registration form is simply to indicate which route is grabbing your attention; your choice on the form does not bind you to a specific route. We recommend staying open to all possibilities so attendees can be vibrationally allocated to their perfect fit.",
   },
+  {
+    q: "I am a professional artist and would like to know how I can contribute to the tour with my craft.",
+    a: (
+      <>
+        We are looking for artists for programs in both concert halls and the
+        course programs. If you would like to contribute an art, please
+        reach out to us for more details at{" "}
+        <a
+          href="mailto:meditate.canada@sahaja.ca"
+          className="text-teal hover:underline font-medium"
+        >
+          meditate.canada@sahaja.ca
+        </a>
+      </>
+    ),
+  },
 ];
 
 export default function FAQ() {

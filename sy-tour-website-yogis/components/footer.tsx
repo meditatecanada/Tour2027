@@ -63,20 +63,24 @@ export default function Footer() {
               meditate.canada@sahaja.ca
             </a>
             <div className="flex gap-4 mt-4">
-              <a
-                href="#"
-                className="text-white/50 hover:text-white text-xs tracking-wide transition-colors"
+              <button
+                type="button"
+                disabled
+                aria-disabled="true"
                 aria-label="Instagram"
+                className="text-white/30 text-xs tracking-wide cursor-not-allowed"
               >
                 Instagram
-              </a>
-              <a
-                href="#"
-                className="text-white/50 hover:text-white text-xs tracking-wide transition-colors"
+              </button>
+              <button
+                type="button"
+                disabled
+                aria-disabled="true"
                 aria-label="Facebook"
+                className="text-white/30 text-xs tracking-wide cursor-not-allowed"
               >
                 Facebook
-              </a>
+              </button>
             </div>
           </div>
         </div>
