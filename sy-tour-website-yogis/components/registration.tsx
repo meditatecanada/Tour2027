@@ -97,7 +97,7 @@ export default function Registration() {
         </div>
 
         {/* Cost highlight */}
-        <div className="flex flex-wrap justify-center gap-6 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12">
           {/* Participation Fee card with two tiers */}
           <div className="text-center bg-white rounded-xl px-6 py-5 shadow-sm border border-border min-w-[180px] flex flex-col items-center">
             <p className="text-xs uppercase tracking-wider text-muted-foreground mb-2">
@@ -150,20 +150,20 @@ export default function Registration() {
                 The pre-registration form is available here for the 2027 tour.
               </p>
             </div>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center mt-auto">
-              <a href={GOOGLE_FORM_URL} target="_blank" rel="noopener noreferrer" className="inline-block">
+            <div className="flex flex-col sm:flex-row gap-3 justify-center mt-auto w-full">
+              <a href={GOOGLE_FORM_URL} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto block">
                 <Button
                   size="default"
-                  className="bg-[#65B784] hover:bg-[#65B784]/90 text-white rounded-full px-6 py-2 text-sm w-full"
+                  className="bg-[#65B784] hover:bg-[#65B784]/90 text-white rounded-full px-6 py-2.5 text-sm w-full cursor-pointer"
                 >
                   Register Interest
                 </Button>
               </a>
-              <a href="#contact" className="inline-block">
+              <a href="#contact" className="w-full sm:w-auto block">
                 <Button
                   size="default"
                   variant="outline"
-                  className="rounded-full px-6 py-2 text-sm border-[#65B784] text-[#65B784] hover:bg-[#65B784]/5 w-full"
+                  className="rounded-full px-6 py-2.5 text-sm border-[#65B784] text-[#65B784] hover:bg-[#65B784]/5 w-full cursor-pointer"
                 >
                   Contact the Team
                 </Button>
