@@ -20,6 +20,14 @@ export default function Navigation() {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
+    // Force page scroll to top on refresh/load
+    if (typeof window !== "undefined") {
+      if ("scrollRestoration" in window.history) {
+        window.history.scrollRestoration = "manual";
+      }
+      window.scrollTo(0, 0);
+    }
+
     const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -52,7 +60,7 @@ export default function Navigation() {
             height={96}
             width={340}
             priority
-            className="h-10 sm:h-14 w-auto transition-all duration-300"
+            className="h-12 md:h-24 w-auto transition-all duration-300"
           />
         </a>
 
