@@ -28,7 +28,7 @@ export default function Hero() {
         </p>
 
         {/* Main title */}
-        <h1 className="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-tight mb-4 text-white drop-shadow-lg">
+        <h1 className="font-heading text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-tight mb-4 text-white drop-shadow-lg">
           Meditate
           <br />
           Canada
@@ -44,28 +44,28 @@ export default function Hero() {
         </div>
 
         {/* Subtitle */}
-        <p className="text-lg sm:text-xl md:text-2xl text-white/85 font-sans font-light mb-4 max-w-2xl mx-auto leading-relaxed">
+        <p className="text-base sm:text-xl md:text-2xl text-white/85 font-sans font-light mb-4 max-w-2xl mx-auto leading-relaxed">
           A cross-Canada Sahaja Yoga realization tour
         </p>
 
-        <p className="text-sm sm:text-base text-white/70 mb-10 tracking-wide">
+        <p className="text-xs sm:text-base text-white/70 mb-10 tracking-wide">
           Summer 2027 &nbsp;·&nbsp; Four Routes &nbsp;·&nbsp; Culminating at Krishna Puja, Canajoharie
         </p>
 
         {/* CTAs */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a href="#routes">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-md mx-auto sm:max-w-none">
+          <a href="#routes" className="w-full sm:w-auto">
             <Button
               size="lg"
-              className="bg-teal hover:bg-teal/90 text-white rounded-full px-8 py-6 text-base font-medium shadow-lg"
+              className="w-full bg-teal hover:bg-teal/90 text-white rounded-full px-8 py-6 text-base font-medium shadow-lg cursor-pointer"
             >
               Explore the Routes
             </Button>
           </a>
-          <a href="#join">
+          <a href="#join" className="w-full sm:w-auto">
             <Button
               size="lg"
-              className="bg-[#65B784] hover:bg-[#65B784]/90 text-white rounded-full px-8 py-6 text-base font-medium shadow-lg"
+              className="w-full bg-[#65B784] hover:bg-[#65B784]/90 text-white rounded-full px-8 py-6 text-base font-medium shadow-lg cursor-pointer"
             >
               Register Interest
             </Button>

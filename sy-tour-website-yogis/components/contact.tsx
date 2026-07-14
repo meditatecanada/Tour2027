@@ -76,8 +76,8 @@ export default function Contact() {
             </div>
 
             <div className="mt-6">
-              <a href="mailto:meditate.canada@sahaja.ca">
-                <Button className="w-full bg-teal hover:bg-teal/90 text-white rounded-full">
+              <a href="mailto:meditate.canada@sahaja.ca" className="w-full block">
+                <Button className="w-full bg-teal hover:bg-teal/90 text-white rounded-full cursor-pointer">
                   Send an Email
                 </Button>
               </a>

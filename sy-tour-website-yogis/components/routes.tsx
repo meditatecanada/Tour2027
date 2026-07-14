@@ -74,11 +74,11 @@ export default function Routes() {
                   </p>
                 </div>
 
-                {/* CTA — visible on hover */}
-                <a href="#join">
+                {/* CTA — always visible on mobile, visible on hover on desktop */}
+                <a href="#join" className="w-full block mt-2">
                   <Button
                     size="sm"
-                    className="w-full bg-teal hover:bg-teal/90 text-white rounded-full text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    className="w-full bg-teal hover:bg-teal/90 text-white rounded-full text-xs opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 cursor-pointer"
                   >
                     Join This Route
                     <ArrowRight className="h-3 w-3 ml-1" />
@@ -93,6 +93,9 @@ export default function Routes() {
         <div className="mt-16">
           <p className="text-center text-xs tracking-[0.25em] uppercase text-muted-foreground mb-8">
             All routes side-by-side
+          </p>
+          <p className="text-center text-[10px] tracking-[0.25em] uppercase text-muted-foreground/60 -mt-6 mb-8 md:hidden">
+            ← Scroll horizontally to see route details →
           </p>
 
           <div className="bg-cream rounded-2xl p-6 md:p-8 overflow-x-auto">

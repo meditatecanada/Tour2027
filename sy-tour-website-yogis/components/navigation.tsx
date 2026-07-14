@@ -52,7 +52,7 @@ export default function Navigation() {
             height={96}
             width={340}
             priority
-            className="h-24 w-auto"
+            className="h-10 sm:h-14 w-auto transition-all duration-300"
           />
         </a>
 
@@ -119,17 +119,16 @@ export default function Navigation() {
                 </button>
               ))}
               {/* Mobile split button */}
-              <div className="mt-6 flex items-stretch rounded-full overflow-hidden shadow-sm">
+              <div className="mt-6 flex flex-col gap-3">
                 <button
                   onClick={() => handleNav("#join")}
-                  className="flex-1 bg-[#65B784] hover:bg-[#65B784]/90 text-white text-sm font-medium py-2.5 transition-colors"
+                  className="w-full bg-[#65B784] hover:bg-[#65B784]/90 text-white text-sm font-medium py-2.5 rounded-full shadow-sm transition-colors cursor-pointer"
                 >
                   Register Interest
                 </button>
-                <div className="w-px bg-white/40" />
                 <button
                   onClick={() => handleNav("#contact")}
-                  className="flex-1 bg-[#D07474] hover:bg-[#D07474]/90 text-white text-sm font-medium py-2.5 transition-colors"
+                  className="w-full bg-[#D07474] hover:bg-[#D07474]/90 text-white text-sm font-medium py-2.5 rounded-full shadow-sm transition-colors cursor-pointer"
                 >
                   Support Tour
                 </button>
